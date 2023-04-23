@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """LRU cache"""
 from collections import OrderedDict
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
