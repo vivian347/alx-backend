@@ -15,11 +15,9 @@ class LIFOCache(BaseCaching):
         """use FIFO algos to assign dict valsss"""
         if key and item:
             self.cache_data[key] = item
-
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             self.cache_data.pop(self.newest_item)
             print("DISCARD: ", self.newest_item)
-
         if key:
             self.newest_item = key
 
