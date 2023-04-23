@@ -17,11 +17,9 @@ class FIFOCache(BaseCaching):
             self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             oldest_key = sorted(self.cache_data)[0]
-            del self.cache_data[oldest_key]
-            print("DISCARD: ", oldest_key)
-
-        self.key_list.append(key)
+            self.cache_data.pop(oldest_key)
+            print("DISCARD: {}".format(oldest_key))
 
     def get(self, key):
         """return val in dict linked to key"""
-        return self.cache_data[key]
+        return self.cache_data.get(key)
