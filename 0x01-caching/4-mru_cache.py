@@ -11,7 +11,7 @@ class MRUCache(BaseCaching):
     """inherits from BaseCaching and is a caching system"""
 
     def __init__(self):
-        """initialize"""
+        """initialize class"""
         super().__init__()
         self.cache_data = OrderedDict()
         self.mru = ""
