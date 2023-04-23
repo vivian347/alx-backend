@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""LRU cache"""
-from collections import OrderedDict
+""" Python caching systems """
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class LRUCache(BaseCaching):
@@ -16,7 +16,7 @@ class LRUCache(BaseCaching):
     """
 
     def __init__(self):
-        """initialize class"""
+        """ Initialize class instance. """
         super().__init__()
         self.cache_data = OrderedDict()
 
@@ -31,7 +31,6 @@ class LRUCache(BaseCaching):
         if key and item:
             self.cache_data[key] = item
             self.cache_data.move_to_end(key)
-
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 discarded = self.cache_data.popitem(last=False)
                 print('DISCARD: {}'.format(discarded[0]))
@@ -42,6 +41,6 @@ class LRUCache(BaseCaching):
         and return -1 if the key is not found.
         And also move the key to the end to show that it was recently used
         """
-        if key in self.cache_data and key is not None:
+        if key in self.cache_data:
             self.cache_data.move_to_end(key)
             return self.cache_data[key]
