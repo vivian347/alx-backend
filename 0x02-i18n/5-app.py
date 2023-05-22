@@ -40,9 +40,6 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-babel.init_app(app, locale_selector=get_locale)
-
-
 def get_user() -> Union[dict, None]:
     """ return user dict if ID can be found
     """
@@ -59,6 +56,9 @@ def before_request():
     """use get_user and set user as a global on flask.g.user
     """
     g.user = get_user()
+
+
+babel.init_app(app, locale_selector=get_locale)
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
