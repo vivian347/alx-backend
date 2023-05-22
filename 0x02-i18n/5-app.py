@@ -6,7 +6,7 @@ import getopt
 from typing import Union
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, gettext
-import greenlet
+
 
 app = Flask(__name__)
 babel = Babel(app)
